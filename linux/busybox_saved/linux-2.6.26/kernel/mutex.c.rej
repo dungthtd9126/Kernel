@@ -1,0 +1,20 @@
+--- kernel/mutex.bak	2023-11-26 13:50:27.895723094 +0800
++++ kernel/mutex.c	2023-11-26 13:51:33.168997715 +0800
+@@ -58,7 +58,7 @@
+  * We also put the fastpath first in the kernel image, to make sure the
+  * branch is predicted by the CPU as default-untaken.
+  */
+-static void noinline __sched
++static __used void noinline __sched
+ __mutex_lock_slowpath(atomic_t *lock_count);
+ 
+ /***
+@@ -95,7 +95,7 @@
+ EXPORT_SYMBOL(mutex_lock);
+ #endif
+ 
+-static noinline void __sched __mutex_unlock_slowpath(atomic_t *lock_count);
++static noinline __used void __sched __mutex_unlock_slowpath(atomic_t *lock_count);
+ 
+ /***
+  * mutex_unlock - release the mutex

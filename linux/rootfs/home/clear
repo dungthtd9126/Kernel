@@ -1,0 +1,1 @@
+sudo rm Module.symvers modules.order *.mod* *.ko *.o
