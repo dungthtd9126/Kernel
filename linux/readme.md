@@ -158,7 +158,21 @@ The sysfs filesystem exposes the kernel's device model:
 └── module/
 ```
 
-## initramfs archive command explain
+## Decompress `initramfs.cpio.gz` file type
+`initramfs.cpio.gz` is compressed 2 times: cpio then gz
+
+So I need to decompress 2 times too
+```bash
+ @saitomu  gzip -d initramfs.cpio.gz                      
+
+ @saitomu  ls
+ initramfs.cpio
+
+ @saitomu  cpio -id < *.cpio
+2383 blocks
+```
+
+## initramfs archive command explaination
 ```
 cpio -H newc -o
 ```
