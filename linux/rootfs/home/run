@@ -8,7 +8,7 @@ qemu-system-i386 \
     -append "console=ttyS0" \
     -device e1000,netdev=n1 \
     -netdev tap,id=n1,ifname=tap0,script=no,downscript=no \
-    -nographic  \
-    -s -S
+    -nographic # \
+    # -s -S
 
   #  -netdev user,id=n1,hostfwd=tcp::3636-:36 \
